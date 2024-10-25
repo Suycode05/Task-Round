@@ -6,21 +6,21 @@ from sklearn.neighbors import KNeighborsClassifier
 from sklearn.metrics import accuracy_score, classification_report, confusion_matrix
 
 iris = load_iris()
-X = iris.data 
-y = iris.target
+a = iris.data 
+b = iris.target
 
-X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+a_train, a_test, b_train, b_test = train_test_split(a, b, test_size=0.2, random_state=42)
 
 knn = KNeighborsClassifier(n_neighbors=3) 
-knn.fit(X_train, y_train)
+knn.fit(a_train, b_train)
 
-y_pred = knn.predict(X_test)
+b_pred = knn.predict(a_test)
 
-accuracy = accuracy_score(y_test, y_pred)
-print(f'Accuracy: {accuracy:.2f}')
+acc = accuracy_score(b_test, b_pred)
+print(f'Accuracy: {acc:.2f}')
 
 print('Confusion Matrix:')
-print(confusion_matrix(y_test, y_pred))
+print(confusion_matrix(b_test, b_pred))
 
 print('Classification Report:')
-print(classification_report(y_test, y_pred))
+print(classification_report(b_test, b_pred))
